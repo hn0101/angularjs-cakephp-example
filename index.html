@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="js/lib/bootstrap-3.0.3/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <div ng-app="app">
+
+        <!-- header -->
+        <div class="navbar navbar-inverse" role="navigation">
+            <div class="controller">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="">angular.js + cakephp REST application example</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- container -->
+        <div class="container" ng-controller="postsController" ng-cloak>
+            <div class="row">
+                <div class="col-md-8">
+                    <h2>Records</h2>
+                    <div ng-hide="isEditing">
+                        <div class="editMenu">
+                            <button class="btn btn-success" ng-click="edit()">
+                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> New Post
+                            </button>
+                        </div>
+                        
+                        <table class="table table-bordered table-striped table-hover">
+                            <htead>
+                                <tr>
+                                    <th></th>
+                                    <th>category</th>
+                                    <th>title</th>
+                                    <th>created/updated</th>
+                                </tr>
+                            </htead>
+                            <tbody>
+                                <tr ng-repeat="v in posts">
+                                    <td style="width: 120px;">
+                                        <button type="button" class="btn btn-info" ng-click="edit(v)">
+                                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                        </button>
+                                        <button type="button" class="btn btn-danger" ng-click="delete(v)">
+                                            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                        </button>
+                                    </td>
+                                    <td>{{v.Category.name}}</td>
+                                    <td>{{v.Post.title}}</td>
+                                    <td>{{v.Post.created}}<br>{{v.Post.updated}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="editForm" ng-hide="!isEditing">
+                        <form class="form-horizontal" ng-submit="save()">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">category</label>
+                                <div class="col-sm-5">
+                                    <select class="form-control" ng-model="post.Post.categoryId" ng-options="c.Category.id as c.Category.name for c in categories"></select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">title</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" ng-model="post.Post.title" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <input class="btn btn-success" type="submit" value="Save">
+                                    <button type="button" class="btn" ng-click="editCancel()">Cancel</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div><!-- /.col -->
+
+                <div class="col-md-4">
+                    <h2>Debug</h2>
+                    <pre>
+-----------
+post
+-----------
+{{post|json}}
+
+-----------
+categories
+-----------
+{{categories|json}}
+
+-----------
+posts
+-----------
+{{posts|json}}
+
+</pre>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </div>
+
+    <script src="js/lib/jquery-1.12.0.min.js"></script>
+    <script src="js/lib/bootstrap-3.0.3/js/bootstrap.min.js"></script>
+    <script src="js/lib/angular-1.2.6/angular.min.js"></script>
+    <script src="js/lib/angular-1.2.6/angular-resource.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/services/post.js"></script>
+    <script src="js/services/category.js"></script>
+    <script src="js/controllers/postsController.js"></script>
+</body>
+</html>
