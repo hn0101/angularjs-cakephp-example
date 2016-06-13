@@ -1701,7 +1701,7 @@ class ValidationTest extends CakeTestCase {
  * @return void
  */
 	public function testEmailDeep() {
-		$this->skipIf(gethostbynamel('example.abcd'), 'Your DNS service responds for non-existant domains, skipping deep email checks.');
+		$this->skipIf(gethostbynamel('example.abcd'), 'Your DNS service responds for non-existent domains, skipping deep email checks.');
 
 		$this->assertTrue(Validation::email('abc.efg@cakephp.org', true));
 		$this->assertFalse(Validation::email('abc.efg@caphpkeinvalid.com', true));

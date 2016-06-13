@@ -1617,7 +1617,7 @@ class DboSourceTest extends CakeTestCase {
 		$result = $Author->find('first', array('conditions' => array('Author.id' => 1), 'recursive' => 1));
 		$this->assertEquals($expected, $result);
 
-		// Backward compatiblity
+		// Backward compatibility
 		$Author = new Author();
 		$Post = $this->getMock('Post', array('afterFind'), array(), '', true);
 		$Post->expects($this->once())->method('afterFind')->with($expected['Post'], $this->isFalse())->will($this->returnArgument(0));

@@ -1405,7 +1405,7 @@ class SetTest extends CakeTestCase {
 
 		$this->assertTrue(Set::matches(array('id'), $a[1]['Article']));
 		$this->assertTrue(Set::matches(array('id', 'title'), $a[1]['Article']));
-		$this->assertFalse(Set::matches(array('non-existant'), $a[1]['Article']));
+		$this->assertFalse(Set::matches(array('non-existent'), $a[1]['Article']));
 
 		$this->assertTrue(Set::matches('/Article[id=2]', $a));
 		$this->assertFalse(Set::matches('/Article[id=4]', $a));
@@ -1865,7 +1865,7 @@ class SetTest extends CakeTestCase {
 		$expected = array(2 => null, 14 => null, 25 => null);
 		$this->assertEquals($expected, $result);
 
-		$result = Set::combine($a, '{n}.User.id', '{n}.User.non-existant');
+		$result = Set::combine($a, '{n}.User.id', '{n}.User.non-existent');
 		$expected = array(2 => null, 14 => null, 25 => null);
 		$this->assertEquals($expected, $result);
 
@@ -1970,7 +1970,7 @@ class SetTest extends CakeTestCase {
 		$expected = array(2 => null, 14 => null, 25 => null);
 		$this->assertEquals($expected, $result);
 
-		$result = Set::combine($b, 'users.{n}.User.id', 'users.{n}.User.non-existant');
+		$result = Set::combine($b, 'users.{n}.User.id', 'users.{n}.User.non-existent');
 		$expected = array(2 => null, 14 => null, 25 => null);
 		$this->assertEquals($expected, $result);
 

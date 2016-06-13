@@ -490,7 +490,7 @@ class TreeBehaviorNumberTest extends CakeTestCase {
 		$this->Tree->id = null;
 
 		$initialCount = $this->Tree->find('count');
-		//$this->expectError('Trying to save a node under a none-existant node in TreeBehavior::beforeSave');
+		//$this->expectError('Trying to save a node under a none-existent node in TreeBehavior::beforeSave');
 
 		$this->Tree->create();
 		$saveSuccess = $this->Tree->save(array($modelClass => array('name' => 'testAddInvalid', $parentField => 99999)));

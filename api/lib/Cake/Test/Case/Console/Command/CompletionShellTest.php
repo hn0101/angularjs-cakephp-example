@@ -91,7 +91,7 @@ class CompletionShellTest extends CakeTestCase {
 	}
 
 /**
- * test that the startup method supresses the shell header
+ * test that the startup method suppresses the shell header
  *
  * @return void
  */
