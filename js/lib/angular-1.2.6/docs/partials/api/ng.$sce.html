@@ -130,10 +130,10 @@ domain</strong> as the application document using the <strong>same protocol</str
 being tested (substring matches are not good enough.)</li>
 <li>There are exactly <strong>two wildcard sequences</strong> - <code>*</code> and <code>**</code>.  All other characters
 match themselves.</li>
-<li><code>*</code>: matches zero or more occurances of any character other than one of the following 6
+<li><code>*</code>: matches zero or more occurrences of any character other than one of the following 6
 characters: &#39;<code>:</code>&#39;, &#39;<code>/</code>&#39;, &#39;<code>.</code>&#39;, &#39;<code>?</code>&#39;, &#39;<code>&amp;</code>&#39; and &#39;;&#39;.  It&#39;s a useful wildcard for use
 in a whitelist.</li>
-<li><code>**</code>: matches zero or more occurances of <em>any</em> character.  As such, it&#39;s not
+<li><code>**</code>: matches zero or more occurrences of <em>any</em> character.  As such, it&#39;s not
 not appropriate to use in for a scheme, domain, etc. as it would match too much.  (e.g.
 <a href="http://**.example.com/">http://**.example.com/</a> would match <a href="http://evil.com/?ignore=.example.com/">http://evil.com/?ignore=.example.com/</a> and that might
 not have been the intention.)  It&#39;s usage at the very end of the path is ok.  (e.g.
